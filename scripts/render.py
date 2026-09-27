@@ -8,13 +8,16 @@ import datetime as dt
 import json
 import math
 import os
+import re
 import urllib.request
 from pathlib import Path
 from xml.sax.saxutils import escape
 
 USER = os.environ.get("GH_USER", "fixalllow")
 TOKEN = os.environ["GH_TOKEN"]
-OUT = Path(__file__).resolve().parent.parent / "generated"
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "generated"
+SNAKE = Path(os.environ.get("SNAKE_SVG", ROOT / "dist" / "snake.svg"))  # produced by Platane/snk in CI
 W = 860  # every card shares this width so they line up in the README
 
 THEMES = {
@@ -30,8 +33,9 @@ MONO = '"SF Mono","JetBrains Mono","Fira Code",Menlo,Consolas,monospace'
 STACK = [
     ("Languages", [("Go", "#00ADD8"), ("TypeScript", "#3178c6"), ("JavaScript", "#f1e05a"),
                    ("Python", "#3572A5"), ("Rust", "#dea584"), ("Dart", "#00B4AB")]),
-    ("Backend", [("Gin", "#00ADD8"), ("NATS", "#27AAE1"), ("MongoDB", "#47A248"), ("SQLite", "#0F80CC"),
-                 ("WebSocket", "#8b949e"), ("Protobuf", "#4285F4"), ("Node.js", "#5FA04E")]),
+    ("Messaging", [("IM Protocols", "#4fe0b6"), ("WebSocket", "#8b949e"), ("Protobuf", "#4285F4"),
+                   ("NATS", "#27AAE1"), ("Multi-device Sync", "#00ADD8")]),
+    ("Backend", [("Gin", "#00ADD8"), ("MongoDB", "#47A248"), ("SQLite", "#0F80CC"), ("Node.js", "#5FA04E")]),
     ("Frontend", [("Vue 3", "#41B883"), ("Vite", "#646CFF"), ("Flutter", "#02569B")]),
     ("Infra", [("Linux", "#FCC624"), ("Nginx", "#009639"), ("GitHub Actions", "#2088FF"), ("Git", "#F05032")]),
 ]
@@ -154,28 +158,61 @@ def fmt(n):
 
 # ---------------------------------------------------------------- cards
 
-def stats_card(data, t):
+def stats_row(data, t, y):
+    """Four headline numbers separated by hairlines."""
     cal = data["last_year"]
-    cur, best, rng = streaks(data["days"])
-    total = sum(data["days"].values())
-    tiles = [
-        ("CONTRIBUTIONS", fmt(cal["totalContributions"]), "last 12 months"),
-        ("ALL-TIME", fmt(total), f"since {data['since']}"),
-        ("CURRENT STREAK", f"{cur}", "days" if cur != 1 else "day"),
-        ("LONGEST STREAK", f"{best}", rng or "days"),
+    days = [d["contributionCount"] for w in cal["weeks"] for d in w["contributionDays"]]
+    _, best, _ = streaks(data["days"])
+    items = [
+        (fmt(cal["totalContributions"]), "", "contributions · last 12 months"),
+        (fmt(sum(data["days"].values())), "", f"all-time since {data['since']}"),
+        (str(sum(1 for c in days if c)), "days", "active in the last year"),
+        (str(best), "days", "longest streak"),
     ]
-    gap, pad = 14, 32
-    tw = (W - 2 * pad - gap * 3) / 4
-    body = [header("Overview", f"{data['repos']} repositories · {data['stars']} stars", t)]
-    for i, (label, value, sub) in enumerate(tiles):
-        x = pad + i * (tw + gap)
-        body.append(f'''<g class="in" style="animation-delay:{.1 + i * .12:.2f}s">
-  <rect x="{x:.1f}" y="62" width="{tw:.1f}" height="96" rx="10" fill="{t['subtle']}" stroke="{t['line']}"/>
-  <text x="{x + 18:.1f}" y="86" class="label" font-size="10">{label}</text>
-  <text x="{x + 16:.1f}" y="126" font-size="34" font-weight="700" fill="url(#accent)" letter-spacing="-.02em">{value}</text>
-  <text x="{x + 18:.1f}" y="146" font-size="12" class="muted">{escape(sub)}</text>
+    colw = (W - 64) / 4
+    out = []
+    for i, (value, unit, label) in enumerate(items):
+        x = 32 + i * colw + (24 if i else 0)
+        if i:
+            out.append(f'<line x1="{32 + i * colw:.1f}" x2="{32 + i * colw:.1f}" y1="{y - 30}" y2="{y + 20}" stroke="{t["line"]}"/>')
+        unit_svg = f'<tspan dx="5" font-size="13" font-weight="500" class="muted">{unit}</tspan>' if unit else ""
+        out.append(f'''<g class="in" style="animation-delay:{.1 + i * .1:.2f}s">
+  <text x="{x:.1f}" y="{y}" font-size="30" font-weight="600" letter-spacing="-.02em" class="fg">{value}{unit_svg}</text>
+  <text x="{x:.1f}" y="{y + 22}" font-size="12" class="muted">{escape(label)}</text>
 </g>''')
-    return card(186, "\n".join(body), t)
+    return out
+
+
+def legend(t, y, note):
+    step = 14.5
+    lx = W - 32 - 5 * step - 30
+    out = [f'<text x="32" y="{y + 9}" font-size="10" class="muted">{escape(note)}</text>',
+           f'<text x="{lx - 8:.1f}" y="{y + 9}" text-anchor="end" font-size="10" class="muted">Less</text>']
+    for k in range(5):
+        out.append(f'<rect x="{lx + k * step:.1f}" y="{y}" width="11" height="11" rx="2.5" fill="{t["heat"][k]}"/>')
+    out.append(f'<text x="{lx + 5 * step + 4:.1f}" y="{y + 9}" font-size="10" class="muted">More</text>')
+    return out
+
+
+def snake_card(data, t):
+    """Contribution calendar eaten by the Platane/snk snake, recoloured to match the other cards."""
+    svg = SNAKE.read_text()
+    vb = re.search(r'viewBox="([^"]+)"', svg).group(1)
+    _, _, vw, vh = map(float, vb.split())
+    inner = svg[svg.index(">") + 1:svg.rindex("</svg>")]
+    colors = {"cb": "transparent", "cs": ACCENT[0], "ce": t["heat"][0]}
+    colors.update({f"c{k}": t["heat"][k] for k in range(5)})
+    root = ":root{" + ";".join(f"--{k}:{v}" for k, v in colors.items()) + "}"
+    inner = re.sub(r"@media[^{]*\{\s*:root\s*\{[^}]*\}\s*\}", "", inner)
+    inner = re.sub(r":root\s*\{[^}]*\}", lambda _: root, inner, count=1)
+    inner = re.sub(r"<desc>.*?</desc>", "", inner, flags=re.S)
+    sw = W - 64
+    sh = sw * vh / vw
+    body = [header("Contributions", f"{fmt(data['last_year']['totalContributions'])} in the last year", t),
+            f'<svg x="32" y="52" width="{sw:.1f}" height="{sh:.1f}" viewBox="{vb}">{inner}</svg>']
+    ly = 52 + sh + 4
+    body += legend(t, ly, "Includes private contributions · no repository details")
+    return card(int(ly + 34), "\n".join(body), t)
 
 
 def heatmap_card(data, t):
@@ -235,12 +272,15 @@ def smooth(points):
 
 
 def insights_card(data, t):
-    h = 262
-    body = [header("Activity", "weekly contributions · last 12 months", t)]
+    body = [header("Activity", f"{data['repos']} repositories · {data['stars']} stars", t)]
+    body += stats_row(data, t, 100)
+    body.append(f'<line x1="32" x2="{W - 32}" y1="146" y2="146" stroke="{t["line"]}"/>')
 
     # left: weekly area chart
     weekly = [sum(d["contributionCount"] for d in w["contributionDays"]) for w in data["last_year"]["weeks"]]
-    cx, cy, cw, ch = 62, 70, 450, 150
+    cx, cy, cw, ch = 62, 206, 450, 130
+    h = cy + ch + 44
+    body.append(f'<text x="32" y="{cy - 26}" class="label" font-size="10">WEEKLY CONTRIBUTIONS</text>')
     peak = max(weekly) or 1
     top = max(10, math.ceil(peak / 10) * 10)
     for k in range(3):
@@ -272,16 +312,16 @@ def insights_card(data, t):
     other = total - sum(s for _, (s, _) in top_langs)
     if other > 0:
         top_langs.append(("Other", (other, "#6e7681")))
-    body.append(f'<text x="{lx}" y="{cy + 4}" class="label" font-size="10">LANGUAGES</text>')
-    body.append(f'<clipPath id="bar"><rect x="{lx}" y="{cy + 18}" width="{lw}" height="8" rx="4"/></clipPath><g clip-path="url(#bar)">')
+    body.append(f'<text x="{lx}" y="{cy - 26}" class="label" font-size="10">LANGUAGES</text>')
+    body.append(f'<clipPath id="bar"><rect x="{lx}" y="{cy - 8}" width="{lw}" height="8" rx="4"/></clipPath><g clip-path="url(#bar)">')
     x = lx
     for name, (size, color) in top_langs:
         wdt = lw * size / total
-        body.append(f'<rect x="{x:.1f}" y="{cy + 18}" width="{wdt + .5:.1f}" height="8" fill="{color}"/>')
+        body.append(f'<rect x="{x:.1f}" y="{cy - 8}" width="{wdt + .5:.1f}" height="8" fill="{color}"/>')
         x += wdt
     body.append("</g>")
     for i, (name, (size, color)) in enumerate(top_langs):
-        y = cy + 52 + i * 19
+        y = cy + 24 + i * 19
         body.append(f'''<g class="in" style="animation-delay:{.3 + i * .08:.2f}s">
   <circle cx="{lx + 5}" cy="{y - 4}" r="4.5" fill="{color}"/>
   <text x="{lx + 18}" y="{y}" font-size="12.5" class="fg">{escape(name)}</text>
@@ -315,12 +355,14 @@ def stack_card(t):
 def main():
     data = fetch()
     OUT.mkdir(exist_ok=True)
+    for old in OUT.glob("*.svg"):
+        old.unlink()
     for name, t in THEMES.items():
-        (OUT / f"stats-{name}.svg").write_text(stats_card(data, t))
-        (OUT / f"heatmap-{name}.svg").write_text(heatmap_card(data, t))
-        (OUT / f"insights-{name}.svg").write_text(insights_card(data, t))
+        contrib = snake_card(data, t) if SNAKE.exists() else heatmap_card(data, t)
+        (OUT / f"contributions-{name}.svg").write_text(contrib)
+        (OUT / f"activity-{name}.svg").write_text(insights_card(data, t))
         (OUT / f"stack-{name}.svg").write_text(stack_card(t))
-    print("rendered", sorted(p.name for p in OUT.iterdir()))
+    print("rendered", sorted(p.name for p in OUT.iterdir()), "snake" if SNAKE.exists() else "static heatmap")
 
 
 if __name__ == "__main__":
