@@ -18,7 +18,7 @@
     </pattern>
     <clipPath id="frame"><rect width="1200" height="300" rx="18"/></clipPath>
     <style>
-      .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC",Helvetica,Arial,sans-serif}
+      .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
       .mono{font-family:"SF Mono","JetBrains Mono","Fira Code",Menlo,Consolas,monospace}
       .fade{opacity:0;animation:in .6s ease-out forwards}
       .d1{animation-delay:.2s}.d2{animation-delay:.5s}.d3{animation-delay:.8s}
@@ -26,6 +26,7 @@
       .cursor{animation:blink 1s steps(1) infinite}
       @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
       @keyframes blink{50%{opacity:0}}
+      @media (prefers-reduced-motion:reduce){.fade{opacity:1;animation:none}}
     </style>
   </defs>
 
@@ -41,10 +42,10 @@
 
     <!-- left: identity -->
     <g class="sans">
-      <text x="72" y="92" class="fade d1" font-size="15" letter-spacing="4" fill="#58A6FF" font-weight="600">HELLO WORLD · 你好，世界</text>
+      <text x="72" y="92" class="fade d1" font-size="15" letter-spacing="4" fill="#58A6FF" font-weight="600">HELLO, WORLD</text>
       <text x="68" y="168" class="fade d2" font-size="80" font-weight="800" fill="url(#title)">Edison</text>
       <text x="72" y="210" class="fade d3" font-size="24" fill="#e6edf3" font-weight="500">Backend &amp; Full-Stack Engineer</text>
-      <text x="72" y="242" class="fade d3" font-size="16" fill="#8b949e">后端 / 全栈工程师 · 高并发服务 · 实时通信 · 管理平台</text>
+      <text x="72" y="242" class="fade d3" font-size="16" fill="#8b949e">High-concurrency services  ·  Real-time messaging  ·  Admin platforms</text>
     </g>
 
     <!-- right: terminal card -->

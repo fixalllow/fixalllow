@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="238" viewBox="0 0 860 238">
+<defs>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#00ADD8"/><stop offset="1" stop-color="#41B883"/>
+  </linearGradient>
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif} .mono{font-family:"SF Mono","JetBrains Mono","Fira Code",Menlo,Consolas,monospace}
+    .label{font-size:11px;font-weight:600;letter-spacing:.14em;fill:#656d76}
+    .muted{fill:#656d76} .fg{fill:#1f2328}
+    .in{opacity:0;animation:in .5s ease-out forwards}
+    @keyframes in{from{opacity:0}to{opacity:1}}
+    
+    @media (prefers-reduced-motion:reduce){.in,.draw{opacity:1;animation:none;stroke-dashoffset:0}}
+  </style>
+</defs>
+<rect x=".5" y=".5" width="859" height="237" rx="14" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="32" y="29" width="3" height="14" rx="1.5" fill="url(#accent)"/><text x="44" y="40" class="label">STACK</text><text x="828" y="40" text-anchor="end" font-size="12" class="muted">tools I reach for</text>
+<text x="32" y="79" font-size="13" font-weight="600" class="fg">Languages</text>
+<g class="in" style="animation-delay:0.00s">
+  <rect x="182.0" y="64" width="43.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="195.0" cy="76" r="3.5" fill="#00ADD8"/>
+  <text x="204.0" y="80" font-size="12" class="fg">Go</text>
+</g>
+<g class="in" style="animation-delay:0.05s">
+  <rect x="233.0" y="64" width="95.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="246.0" cy="76" r="3.5" fill="#3178c6"/>
+  <text x="255.0" y="80" font-size="12" class="fg">TypeScript</text>
+</g>
+<g class="in" style="animation-delay:0.10s">
+  <rect x="336.0" y="64" width="95.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="349.0" cy="76" r="3.5" fill="#f1e05a"/>
+  <text x="358.0" y="80" font-size="12" class="fg">JavaScript</text>
+</g>
+<g class="in" style="animation-delay:0.15s">
+  <rect x="439.0" y="64" width="69.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="452.0" cy="76" r="3.5" fill="#3572A5"/>
+  <text x="461.0" y="80" font-size="12" class="fg">Python</text>
+</g>
+<g class="in" style="animation-delay:0.20s">
+  <rect x="516.0" y="64" width="56.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="529.0" cy="76" r="3.5" fill="#dea584"/>
+  <text x="538.0" y="80" font-size="12" class="fg">Rust</text>
+</g>
+<g class="in" style="animation-delay:0.25s">
+  <rect x="580.0" y="64" width="56.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="593.0" cy="76" r="3.5" fill="#00B4AB"/>
+  <text x="602.0" y="80" font-size="12" class="fg">Dart</text>
+</g>
+<line x1="32" x2="828" y1="96" y2="96" stroke="#eaeef2"/>
+<text x="32" y="123" font-size="13" font-weight="600" class="fg">Backend</text>
+<g class="in" style="animation-delay:0.35s">
+  <rect x="182.0" y="108" width="49.5" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="195.0" cy="120" r="3.5" fill="#00ADD8"/>
+  <text x="204.0" y="124" font-size="12" class="fg">Gin</text>
+</g>
+<g class="in" style="animation-delay:0.40s">
+  <rect x="239.5" y="108" width="56.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="252.5" cy="120" r="3.5" fill="#27AAE1"/>
+  <text x="261.5" y="124" font-size="12" class="fg">NATS</text>
+</g>
+<g class="in" style="animation-delay:0.45s">
+  <rect x="303.5" y="108" width="75.5" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="316.5" cy="120" r="3.5" fill="#47A248"/>
+  <text x="325.5" y="124" font-size="12" class="fg">MongoDB</text>
+</g>
+<g class="in" style="animation-delay:0.50s">
+  <rect x="387.0" y="108" width="69.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="400.0" cy="120" r="3.5" fill="#0F80CC"/>
+  <text x="409.0" y="124" font-size="12" class="fg">SQLite</text>
+</g>
+<g class="in" style="animation-delay:0.55s">
+  <rect x="464.0" y="108" width="88.5" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="477.0" cy="120" r="3.5" fill="#8b949e"/>
+  <text x="486.0" y="124" font-size="12" class="fg">WebSocket</text>
+</g>
+<g class="in" style="animation-delay:0.60s">
+  <rect x="560.5" y="108" width="82.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="573.5" cy="120" r="3.5" fill="#4285F4"/>
+  <text x="582.5" y="124" font-size="12" class="fg">Protobuf</text>
+</g>
+<g class="in" style="animation-delay:0.65s">
+  <rect x="650.5" y="108" width="75.5" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="663.5" cy="120" r="3.5" fill="#5FA04E"/>
+  <text x="672.5" y="124" font-size="12" class="fg">Node.js</text>
+</g>
+<line x1="32" x2="828" y1="140" y2="140" stroke="#eaeef2"/>
+<text x="32" y="167" font-size="13" font-weight="600" class="fg">Frontend</text>
+<g class="in" style="animation-delay:0.70s">
+  <rect x="182.0" y="152" width="62.5" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="195.0" cy="164" r="3.5" fill="#41B883"/>
+  <text x="204.0" y="168" font-size="12" class="fg">Vue 3</text>
+</g>
+<g class="in" style="animation-delay:0.75s">
+  <rect x="252.5" y="152" width="56.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="265.5" cy="164" r="3.5" fill="#646CFF"/>
+  <text x="274.5" y="168" font-size="12" class="fg">Vite</text>
+</g>
+<g class="in" style="animation-delay:0.80s">
+  <rect x="316.5" y="152" width="75.5" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="329.5" cy="164" r="3.5" fill="#02569B"/>
+  <text x="338.5" y="168" font-size="12" class="fg">Flutter</text>
+</g>
+<line x1="32" x2="828" y1="184" y2="184" stroke="#eaeef2"/>
+<text x="32" y="211" font-size="13" font-weight="600" class="fg">Infra</text>
+<g class="in" style="animation-delay:1.05s">
+  <rect x="182.0" y="196" width="62.5" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="195.0" cy="208" r="3.5" fill="#FCC624"/>
+  <text x="204.0" y="212" font-size="12" class="fg">Linux</text>
+</g>
+<g class="in" style="animation-delay:1.10s">
+  <rect x="252.5" y="196" width="62.5" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="265.5" cy="208" r="3.5" fill="#009639"/>
+  <text x="274.5" y="212" font-size="12" class="fg">Nginx</text>
+</g>
+<g class="in" style="animation-delay:1.15s">
+  <rect x="323.0" y="196" width="121.0" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="336.0" cy="208" r="3.5" fill="#2088FF"/>
+  <text x="345.0" y="212" font-size="12" class="fg">GitHub Actions</text>
+</g>
+<g class="in" style="animation-delay:1.20s">
+  <rect x="452.0" y="196" width="49.5" height="24" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <circle cx="465.0" cy="208" r="3.5" fill="#F05032"/>
+  <text x="474.0" y="212" font-size="12" class="fg">Git</text>
+</g>
+</svg>
