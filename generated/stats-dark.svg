@@ -18,13 +18,13 @@
 <g class="in" style="animation-delay:0.10s">
   <rect x="32.0" y="62" width="188.5" height="96" rx="10" fill="#161b22" stroke="#21262d"/>
   <text x="50.0" y="86" class="label" font-size="10">CONTRIBUTIONS</text>
-  <text x="48.0" y="126" font-size="34" font-weight="700" fill="url(#accent)" letter-spacing="-.02em">823</text>
+  <text x="48.0" y="126" font-size="34" font-weight="700" fill="url(#accent)" letter-spacing="-.02em">824</text>
   <text x="50.0" y="146" font-size="12" class="muted">last 12 months</text>
 </g>
 <g class="in" style="animation-delay:0.22s">
   <rect x="234.5" y="62" width="188.5" height="96" rx="10" fill="#161b22" stroke="#21262d"/>
   <text x="252.5" y="86" class="label" font-size="10">ALL-TIME</text>
-  <text x="250.5" y="126" font-size="34" font-weight="700" fill="url(#accent)" letter-spacing="-.02em">1,227</text>
+  <text x="250.5" y="126" font-size="34" font-weight="700" fill="url(#accent)" letter-spacing="-.02em">1,228</text>
   <text x="252.5" y="146" font-size="12" class="muted">since 2018</text>
 </g>
 <g class="in" style="animation-delay:0.34s">
