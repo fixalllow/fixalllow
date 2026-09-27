@@ -23,12 +23,6 @@
   <img src="https://streak-stats.demolab.com?user=fixalllow&theme=github-dark-blue&hide_border=true&locale=zh_Hans" alt="streak" />
 </p>
 
-## 📊 活跃度
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=fixalllow&theme=github-compact&hide_border=true&area=true" alt="activity graph" />
-</p>
-
 ## 🐍 贡献贪吃蛇
 
 <p align="center">
