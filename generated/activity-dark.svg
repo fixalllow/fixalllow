@@ -55,23 +55,23 @@
 <text x="512" y="356" text-anchor="end" font-size="10" class="muted">Now</text>
 <text x="560" y="180" class="label" font-size="10">LANGUAGES</text>
 <clipPath id="bar"><rect x="560" y="198" width="268" height="8" rx="4"/></clipPath><g clip-path="url(#bar)">
-<rect x="560.0" y="198" width="232.6" height="8" fill="#00ADD8"/>
-<rect x="792.1" y="198" width="12.3" height="8" fill="#41b883"/>
-<rect x="803.9" y="198" width="7.3" height="8" fill="#e34c26"/>
-<rect x="810.7" y="198" width="5.5" height="8" fill="#3178c6"/>
-<rect x="815.7" y="198" width="5.5" height="8" fill="#f1e05a"/>
-<rect x="820.7" y="198" width="2.7" height="8" fill="#336790"/>
-<rect x="822.9" y="198" width="5.6" height="8" fill="#6e7681"/>
+<rect x="560.0" y="198" width="232.3" height="8" fill="#00ADD8"/>
+<rect x="791.8" y="198" width="12.5" height="8" fill="#41b883"/>
+<rect x="803.8" y="198" width="7.2" height="8" fill="#e34c26"/>
+<rect x="810.5" y="198" width="5.6" height="8" fill="#f1e05a"/>
+<rect x="815.5" y="198" width="5.5" height="8" fill="#3178c6"/>
+<rect x="820.6" y="198" width="2.9" height="8" fill="#336790"/>
+<rect x="823.0" y="198" width="5.5" height="8" fill="#6e7681"/>
 </g>
 <g class="in" style="animation-delay:0.30s">
   <circle cx="565" cy="226" r="4.5" fill="#00ADD8"/>
   <text x="578" y="230" font-size="12.5" class="fg">Go</text>
-  <text x="828" y="230" text-anchor="end" font-size="12" class="muted mono">86.6%</text>
+  <text x="828" y="230" text-anchor="end" font-size="12" class="muted mono">86.5%</text>
 </g>
 <g class="in" style="animation-delay:0.38s">
   <circle cx="565" cy="245" r="4.5" fill="#41b883"/>
   <text x="578" y="249" font-size="12.5" class="fg">Vue</text>
-  <text x="828" y="249" text-anchor="end" font-size="12" class="muted mono">4.4%</text>
+  <text x="828" y="249" text-anchor="end" font-size="12" class="muted mono">4.5%</text>
 </g>
 <g class="in" style="animation-delay:0.46s">
   <circle cx="565" cy="264" r="4.5" fill="#e34c26"/>
@@ -79,19 +79,19 @@
   <text x="828" y="268" text-anchor="end" font-size="12" class="muted mono">2.5%</text>
 </g>
 <g class="in" style="animation-delay:0.54s">
-  <circle cx="565" cy="283" r="4.5" fill="#3178c6"/>
-  <text x="578" y="287" font-size="12.5" class="fg">TypeScript</text>
+  <circle cx="565" cy="283" r="4.5" fill="#f1e05a"/>
+  <text x="578" y="287" font-size="12.5" class="fg">JavaScript</text>
   <text x="828" y="287" text-anchor="end" font-size="12" class="muted mono">1.9%</text>
 </g>
 <g class="in" style="animation-delay:0.62s">
-  <circle cx="565" cy="302" r="4.5" fill="#f1e05a"/>
-  <text x="578" y="306" font-size="12.5" class="fg">JavaScript</text>
+  <circle cx="565" cy="302" r="4.5" fill="#3178c6"/>
+  <text x="578" y="306" font-size="12.5" class="fg">TypeScript</text>
   <text x="828" y="306" text-anchor="end" font-size="12" class="muted mono">1.9%</text>
 </g>
 <g class="in" style="animation-delay:0.70s">
   <circle cx="565" cy="321" r="4.5" fill="#336790"/>
   <text x="578" y="325" font-size="12.5" class="fg">PLpgSQL</text>
-  <text x="828" y="325" text-anchor="end" font-size="12" class="muted mono">0.8%</text>
+  <text x="828" y="325" text-anchor="end" font-size="12" class="muted mono">0.9%</text>
 </g>
 <g class="in" style="animation-delay:0.78s">
   <circle cx="565" cy="340" r="4.5" fill="#6e7681"/>
