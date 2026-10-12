@@ -55,12 +55,12 @@
 <text x="512" y="356" text-anchor="end" font-size="10" class="muted">Now</text>
 <text x="560" y="180" class="label" font-size="10">LANGUAGES</text>
 <clipPath id="bar"><rect x="560" y="198" width="268" height="8" rx="4"/></clipPath><g clip-path="url(#bar)">
-<rect x="560.0" y="198" width="232.4" height="8" fill="#00ADD8"/>
-<rect x="791.9" y="198" width="12.4" height="8" fill="#41b883"/>
-<rect x="803.8" y="198" width="7.2" height="8" fill="#e34c26"/>
-<rect x="810.5" y="198" width="5.5" height="8" fill="#f1e05a"/>
-<rect x="815.6" y="198" width="5.5" height="8" fill="#3178c6"/>
-<rect x="820.6" y="198" width="2.9" height="8" fill="#336790"/>
+<rect x="560.0" y="198" width="232.3" height="8" fill="#00ADD8"/>
+<rect x="791.8" y="198" width="12.5" height="8" fill="#41b883"/>
+<rect x="803.7" y="198" width="7.2" height="8" fill="#e34c26"/>
+<rect x="810.4" y="198" width="5.6" height="8" fill="#f1e05a"/>
+<rect x="815.5" y="198" width="5.5" height="8" fill="#3178c6"/>
+<rect x="820.5" y="198" width="3.0" height="8" fill="#336790"/>
 <rect x="823.0" y="198" width="5.5" height="8" fill="#6e7681"/>
 </g>
 <g class="in" style="animation-delay:0.30s">
