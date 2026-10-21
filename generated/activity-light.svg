@@ -55,8 +55,8 @@
 <text x="512" y="356" text-anchor="end" font-size="10" class="muted">Now</text>
 <text x="560" y="180" class="label" font-size="10">LANGUAGES</text>
 <clipPath id="bar"><rect x="560" y="198" width="268" height="8" rx="4"/></clipPath><g clip-path="url(#bar)">
-<rect x="560.0" y="198" width="231.5" height="8" fill="#00ADD8"/>
-<rect x="791.0" y="198" width="12.9" height="8" fill="#41b883"/>
+<rect x="560.0" y="198" width="231.6" height="8" fill="#00ADD8"/>
+<rect x="791.1" y="198" width="12.9" height="8" fill="#41b883"/>
 <rect x="803.5" y="198" width="7.0" height="8" fill="#e34c26"/>
 <rect x="810.0" y="198" width="5.8" height="8" fill="#3178c6"/>
 <rect x="815.3" y="198" width="5.6" height="8" fill="#f1e05a"/>
