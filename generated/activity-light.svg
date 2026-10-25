@@ -16,7 +16,7 @@
 <rect x=".5" y=".5" width="859" height="379" rx="14" fill="#ffffff" stroke="#d0d7de"/>
 <rect x="32" y="29" width="3" height="14" rx="1.5" fill="url(#accent)"/><text x="44" y="40" class="label">ACTIVITY</text><text x="828" y="40" text-anchor="end" font-size="12" class="muted">59 repositories · 20 stars</text>
 <g class="in" style="animation-delay:0.10s">
-  <text x="32.0" y="100" font-size="30" font-weight="600" letter-spacing="-.02em" class="fg">970</text>
+  <text x="32.0" y="100" font-size="30" font-weight="600" letter-spacing="-.02em" class="fg">964</text>
   <text x="32.0" y="122" font-size="12" class="muted">contributions · last 12 months</text>
 </g>
 <line x1="231.0" x2="231.0" y1="70" y2="120" stroke="#eaeef2"/>
