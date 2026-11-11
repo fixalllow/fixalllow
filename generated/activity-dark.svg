@@ -57,9 +57,9 @@
 <clipPath id="bar"><rect x="560" y="198" width="268" height="8" rx="4"/></clipPath><g clip-path="url(#bar)">
 <rect x="560.0" y="198" width="246.4" height="8" fill="#00ADD8"/>
 <rect x="805.9" y="198" width="7.4" height="8" fill="#41b883"/>
-<rect x="812.9" y="198" width="4.1" height="8" fill="#e34c26"/>
+<rect x="812.8" y="198" width="4.1" height="8" fill="#e34c26"/>
 <rect x="816.5" y="198" width="3.7" height="8" fill="#f1e05a"/>
-<rect x="819.7" y="198" width="3.4" height="8" fill="#3178c6"/>
+<rect x="819.7" y="198" width="3.5" height="8" fill="#3178c6"/>
 <rect x="822.6" y="198" width="3.0" height="8" fill="#336790"/>
 <rect x="825.1" y="198" width="3.4" height="8" fill="#6e7681"/>
 </g>
